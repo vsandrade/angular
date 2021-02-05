@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  baseUrl = "http://localhost:3001/products"
+  baseUrl = "http://localhost:3000/products"
   constructor(private snackBar:MatSnackBar, private http: HttpClient) { }
 
   showMessage(msg: string):void {
@@ -29,9 +29,8 @@ export class ProductService {
   }
 
   readById(id: string): Observable<Product>{
-    const url = `${this.baseUrl}/${id}`
-    return this.http.get<Product>(url)
-
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Product>(url);
   }
 
   update(product: Product): Observable<Product>{
